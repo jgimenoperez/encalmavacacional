@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Rápida - Restaurar Formato</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .step {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #667eea;
+        }
+
+        .step h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .step ol, .step ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        .step li {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .code {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            color: #333;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #856404;
+        }
+
+        .success {
+            background: #d4edda;
+            border: 1px solid #28a745;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #155724;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .button-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .button-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .button-secondary:hover {
+            background: #5a6268;
+        }
+
+        .plugin-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .plugin-card {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .plugin-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .plugin-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .checklist {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .checklist label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .checklist input {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .checklist input:checked + span {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+
+        .toc {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .toc h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .toc ol {
+            margin-left: 20px;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .step {
+                padding: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado -->
+        <header>
+            <h1>🎨 Restaurar Formato e Imágenes</h1>
+            <p>Guía paso a paso para completar la configuración de WordPress</p>
+        </header>
+
+        <!-- Tabla de contenidos -->
+        <div class="toc">
+            <h3>📑 Tabla de Contenidos</h3>
+            <ol>
+                <li><a href="#paso1">Instalar el Tema Astra</a></li>
+                <li><a href="#paso2">Instalar Plugins Esenciales</a></li>
+                <li><a href="#paso3">Descargar Imágenes</a></li>
+                <li><a href="#paso4">Regenerar Thumbnails</a></li>
+                <li><a href="#paso5">Configurar Elementor</a></li>
+                <li><a href="#paso6">Reconfigurar Menús</a></li>
+                <li><a href="#checklist">Lista de Verificación</a></li>
+            </ol>
+        </div>
+
+        <!-- Paso 1 -->
+        <div class="step" id="paso1">
+            <h2><span class="step-number">1</span> Instalar el Tema Astra</h2>
+            <p>El tema Astra es el responsable de la apariencia visual del sitio.</p>
+            <ol>
+                <li>Accede a <strong>http://localhost:8080/wp-admin</strong></li>
+                <li>Ve a <strong>Apariencia</strong> → <strong>Temas</strong></li>
+                <li>Haz clic en <strong>Añadir nuevo</strong></li>
+                <li>Busca <strong>"Astra"</strong> en el buscador</li>
+                <li>Haz clic en <strong>Instalar</strong></li>
+                <li>Una vez instalado, haz clic en <strong>Activar</strong></li>
+            </ol>
+            <div class="success">
+                ✅ El tema Astra está activado cuando aparece en "Tema actual"
+            </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="step" id="paso2">
+            <h2><span class="step-number">2</span> Instalar Plugins Esenciales</h2>
+            <p>Estos plugins restaurarán la funcionalidad del sitio original.</p>
+
+            <div class="plugin-list">
+                <div class="plugin-card">
+                    <h4>📝 Elementor</h4>
+                    <p>Constructor visual para editar páginas y posts con arrastrar y soltar</p>
+                </div>
+                <div class="plugin-card">
+                    <h4>📧 Contact Form 7</h4>
+                    <p>Crea y gestiona formularios de contacto fácilmente</p>
+                </div>
+                <div class="plugin-card">
+                    <h4>🖼️ WP Smush</h4>
+                    <p>Optimiza imágenes para mejorar velocidad del sitio</p>
+                </div>
+                <div class="plugin-card">
+                    <h4>🔍 Yoast SEO</h4>
+                    <p>Mejora el posicionamiento en buscadores (opcional)</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 20px;">Instalación paso a paso:</h3>
+            <ol>
+                <li>Ve a <strong>Plugins</strong> → <strong>Añadir nuevo</strong></li>
+                <li>Busca el nombre del plugin en el buscador</li>
+                <li>Haz clic en <strong>Instalar</strong></li>
+                <li>Una vez instalado, haz clic en <strong>Activar</strong></li>
+                <li>Repite para cada plugin</li>
+            </ol>
+
+            <div class="warning">
+                ⚠️ Elementor mostrará un asistente de bienvenida la primera vez.
+                Sigue los pasos del asistente para completar la instalación.
+            </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="step" id="paso3">
+            <h2><span class="step-number">3</span> Descargar Imágenes</h2>
+            <p>Las imágenes necesitan descargarse del sitio original a tu instalación local.</p>
+
+            <h3>Opción A: Automática (Recomendado)</h3>
+            <p>Ejecuta el script de descarga automática en Windows:</p>
+            <div class="code">descargar-imagenes.bat</div>
+            <p>O en Linux/Mac:</p>
+            <div class="code">chmod +x descargar-imagenes.sh && ./descargar-imagenes.sh</div>
+
+            <h3>Opción B: Manual desde Terminal</h3>
+            <ol>
+                <li>Abre PowerShell/Terminal</li>
+                <li>Ejecuta:
+                    <div class="code">docker-compose exec wordpress bash</div>
+                </li>
+                <li>Luego:
+                    <div class="code">cd /var/www/html/wp-content/uploads<br>
+wget -r -l 2 https://www.encalmavacacional.com/wp-content/uploads/</div>
+                </li>
+            </ol>
+
+            <div class="warning">
+                ⚠️ Esta descarga puede tardar 5-10 minutos dependiendo de la velocidad
+                de tu conexión a internet. No cierres la terminal mientras se descarga.
+            </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="step" id="paso4">
+            <h2><span class="step-number">4</span> Regenerar Thumbnails</h2>
+            <p>WordPress necesita regenerar las miniaturas de las imágenes descargadas.</p>
+
+            <ol>
+                <li>Ve a <strong>Plugins</strong> → <strong>Añadir nuevo</strong></li>
+                <li>Busca <strong>"Regenerate Thumbnails"</strong></li>
+                <li>Instala y activa el plugin</li>
+                <li>Ve a <strong>Herramientas</strong> → <strong>Regenerate Thumbnails</strong></li>
+                <li>Haz clic en <strong>"Regenerate All"</strong></li>
+                <li>Espera a que termine (verás una barra de progreso)</li>
+            </ol>
+
+            <div class="success">
+                ✅ Una vez terminado, todas las imágenes deberían verse correctamente
+                en las páginas del sitio.
+            </div>
+        </div>
+
+        <!-- Paso 5 -->
+        <div class="step" id="paso5">
+            <h2><span class="step-number">5</span> Configurar Elementor</h2>
+            <p>Reconstruye el contenido de las páginas creadas con Elementor.</p>
+
+            <ol>
+                <li>Ve a <strong>Páginas</strong> → <strong>Todas las páginas</strong></li>
+                <li>Selecciona una página que tenga contenido</li>
+                <li>Busca el botón <strong>"Editar con Elementor"</strong></li>
+                <li>El contenido se cargará en el editor visual</li>
+                <li>Si faltan elementos, verás mensajes de error</li>
+                <li>Haz los ajustes necesarios</li>
+                <li>Haz clic en <strong>"Actualizar"</strong> para guardar</li>
+            </ol>
+
+            <div class="warning">
+                ⚠️ Si una página no muestra contenido en Elementor, comprueba que
+                tenía contenido en el sitio original. Algunas páginas pueden estar
+                vacías.
+            </div>
+        </div>
+
+        <!-- Paso 6 -->
+        <div class="step" id="paso6">
+            <h2><span class="step-number">6</span> Reconfigurar Menús</h2>
+            <p>Asegúrate de que los menús estén asignados correctamente.</p>
+
+            <ol>
+                <li>Ve a <strong>Apariencia</strong> → <strong>Menús</strong></li>
+                <li>Verás "Main Menu" importado de la exportación</li>
+                <li>Edítalo si es necesario (añadir/eliminar elementos)</li>
+                <li>Ve a <strong>Gestionar ubicaciones</strong></li>
+                <li>Asigna "Main Menu" a:
+                    <ul style="margin-top: 10px;">
+                        <li>Primary Menu (menú principal)</li>
+                        <li>Mobile Menu (si el tema lo requiere)</li>
+                    </ul>
+                </li>
+                <li>Haz clic en <strong>Guardar cambios</strong></li>
+            </ol>
+
+            <div class="success">
+                ✅ El menú debería aparecer en la parte superior de tu sitio.
+            </div>
+        </div>
+
+        <!-- Lista de Verificación -->
+        <div class="step" id="checklist">
+            <h2><span class="step-number">✓</span> Lista de Verificación</h2>
+            <p>Marca cada ítem cuando lo completes:</p>
+
+            <div class="checklist">
+                <label>
+                    <input type="checkbox">
+                    <span>Tema Astra instalado y activado</span>
+                </label>
+                <label>
+                    <input type="checkbox">
+                    <span>Elementor instalado y activado</span>
+                </label>
+                <label>
+                    <input type="checkbox">
+                    <span>Contact Form 7 instalado</span>
+                </label>
+                <label>
+                    <input type="checkbox">
+                    <span>WP Smush instalado</span>
+                </label>
+                <label>
+                    <input type="checkbox">
+                    <span>Imágenes descargadas del sitio original</span>
+                </label>
+                <label>
+                    <input type="checkbox">
+                    <span>Regenerate Thumbnails ejecutado</span>
+                </label>
+                <label>
+                    <input type="checkbox">
+                    <span>Menús configurados y asignados</span>
+                </label>
+                <label>
+                    <input type="checkbox">
+                    <span>Páginas muestran contenido correctamente</span>
+                </label>
+                <label>
+                    <input type="checkbox">
+                    <span>Imágenes se ven en las páginas</span>
+                </label>
+                <label>
+                    <input type="checkbox">
+                    <span>Formularios de contacto funcionan</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Enlaces útiles -->
+        <div class="step">
+            <h2>🔗 Enlaces Útiles</h2>
+            <div class="button-group">
+                <a href="http://localhost:8080/wp-admin" class="button button-primary">
+                    📊 Dashboard de WordPress
+                </a>
+                <a href="http://localhost:8080/wp-admin/plugins.php" class="button button-primary">
+                    🔌 Plugins
+                </a>
+                <a href="http://localhost:8080/wp-admin/themes.php" class="button button-primary">
+                    🎨 Temas
+                </a>
+                <a href="http://localhost:8080/wp-admin/edit.php?post_type=page" class="button button-primary">
+                    📄 Páginas
+                </a>
+                <a href="http://localhost:8080" class="button button-secondary">
+                    🌐 Ver Sitio
+                </a>
+                <a href="http://localhost:8081" class="button button-secondary">
+                    💾 PHPMyAdmin
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>💡 <strong>Consejo</strong>: Si necesitas ayuda, revisa los logs de WordPress ejecutando:</p>
+            <code style="background: rgba(0,0,0,0.2); padding: 5px 10px; border-radius: 4px;">
+                docker-compose logs -f wordpress
+            </code>
+            <p style="margin-top: 15px;">© 2025 ENCALMA VACACIONAL</p>
+        </footer>
+    </div>
+</body>
+</html>
