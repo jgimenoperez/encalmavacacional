@@ -1,0 +1,9 @@
+# Plugins de terceros requeridos para En Calma Vacacional
+# Usar: bash scripts/install-wp-plugins.sh
+
+# Agregar aquí los plugins que necesitas instalar
+# Ejemplo:
+# woocommerce
+# yoast-seo
+# contact-form-7
+# elementor

@@ -1,0 +1,8 @@
+# Temas de terceros requeridos para En Calma Vacacional
+# Usar: bash scripts/install-wp-themes.sh
+
+# Agregar aquí los temas que necesitas instalar
+# Ejemplo:
+# astra
+# hello
+# twentytwentyfour

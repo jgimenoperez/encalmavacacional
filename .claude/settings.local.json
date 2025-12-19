@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash([[CDATA[[^]]*]])",
-      "Bash(c:MCP_CLAUDEEn_Calma_VacacionalWorpress_dataencalmavacacional.WordPress.2025-12-11.xml)"
+      "Bash(c:MCP_CLAUDEEn_Calma_VacacionalWorpress_dataencalmavacacional.WordPress.2025-12-11.xml)",
+      "Bash(git add:*)",
+      "Bash(bash:*)"
     ]
   }
 }

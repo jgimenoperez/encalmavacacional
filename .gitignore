@@ -1,0 +1,43 @@
+# Docker volumes (Base de datos y archivos)
+db_data/
+wordpress_data/
+
+# Variables de entorno sensibles
+.env.local
+.env.*.local
+
+# Certificados SSL (si son generados localmente)
+localhost-key.pem
+localhost.pem
+
+# Logs
+logs/
+*.log
+
+# Backups
+backups/
+*.sql
+backup*.zip
+
+# Cache y temporal
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.env
+.cache
+node_modules/
+
+# WordPress específico
+wp-content/plugins/*/node_modules/
+wp-content/themes/*/node_modules/
+wp-cli.yml
+wp-cli.local.yml
